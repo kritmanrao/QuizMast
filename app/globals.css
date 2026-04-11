@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+/* Optional: Clean up the vertical scrollbar appearance */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #2dd4bf; /* green-400 */
+  border-radius: 10px;
+}
+
 /* Target the specific textarea or use a class like .custom-scrollbar */
 textarea {
   /* General scrollbar width */
@@ -27,10 +41,13 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .animate-rotate {
   animation: rotate 4s linear infinite;
 }
-

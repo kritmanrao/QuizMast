@@ -1,7 +1,7 @@
 import { QuestionsContext } from "@/context/QuestionsContext";
 import { useContext } from "react";
 
-function useQuiz() {
+function useQuestion() {
   const context = useContext(QuestionsContext);
   if (context === undefined) {
     throw new Error("question Context use outside of QuestionProvider.");
@@ -9,4 +9,4 @@ function useQuiz() {
   return context;
 }
 
-export default useQuiz;
+export default useQuestion;

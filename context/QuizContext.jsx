@@ -3,7 +3,27 @@ import { createContext, useReducer } from "react";
 
 export const QuizContext = createContext();
 
-const initialState = [];
+// this is now some fake test it will we be [] or data-base when development done.
+const initialState = [
+  {
+    id: "39189c0b-226e-4786-ae53-2e4353747a96",
+    title: "Test",
+    difficulty: "easy",
+    status: true,
+  },
+  {
+    id: "39189c0b-226e-4786-ae53",
+    title: "Cpp",
+    difficulty: "heard",
+    status: false,
+  },
+  {
+    id: "39189c0b-ae53-2e4353747a96",
+    title: "Java",
+    difficulty: "medium",
+    status: false,
+  },
+];
 
 export const QuizActions = Object.freeze({
   ADD_QUIZ: "addQuiz",
