@@ -2,6 +2,8 @@ import Badges from "@/components/ui/Badges";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react"; // Optional icon
 
+//
+
 export default function Quiz({ id, title, difficulty, status }) {
   const isComplete = status;
   const badgeType =

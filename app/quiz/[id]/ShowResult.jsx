@@ -4,7 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import ResultSummary from "./ResultSummary";
-import QuestionDetail from "./QuestionDetail";
+import QuestionDetail from "./QuestionDetail"; 
 
 export default function ShowResult({ questions, answer }) {
   const [showDetails, setShowDetails] = useState(false);
@@ -31,7 +31,9 @@ export default function ShowResult({ questions, answer }) {
 
       <div className="mt-10 flex flex-col items-center gap-4">
         <button
-          onClick={() => setShowDetails(!showDetails)}
+          onClick={() => {
+            setShowDetails(!showDetails);
+          }}
           className="w-full max-w-xs rounded-xl border border-stone-700 bg-stone-900 px-6 py-3 font-medium text-stone-300 transition-all hover:bg-stone-800"
         >
           {showDetails ? "Hide Detailed Report" : "Review Your Answers"}
@@ -47,7 +49,10 @@ export default function ShowResult({ questions, answer }) {
 
       {/* Conditional Detailed Breakdown */}
       {showDetails && (
-        <div className="animate-in fade-in slide-in-from-bottom-4 mt-12 space-y-6 duration-500">
+        <div
+          id="answers"
+          className="animate-in fade-in slide-in-from-bottom-4 mt-12 space-y-6 duration-500"
+        >
           <h3 className="text-lg font-semibold text-stone-100">
             Review Questions
           </h3>

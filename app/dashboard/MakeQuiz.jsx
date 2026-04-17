@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Plus, ArrowRight } from "lucide-react";
 
 import AutoResizingTextarea from "@/components/ui/AutoResizingTextarea";
@@ -18,6 +18,7 @@ import { QuestionActions } from "@/context/QuestionsContext.jsx";
 export default function MakeQuiz() {
   const { dispatch: quizDispatch } = useQuiz();
   const { dispatch: questionDispatch } = useQuestion();
+  const [isLoading, setIsLoading] = useState(false);
 
   function addQuiz(quizId, title, difficulty) {
     const newQuiz = {
@@ -31,6 +32,7 @@ export default function MakeQuiz() {
   }
 
   function addQuestions(quizId, questions) {
+    if (!questions.length) return;
     const fullQuestions = questions.map((question) =>
       addUuid(quizId, question),
     );
@@ -49,7 +51,10 @@ export default function MakeQuiz() {
         difficulty,
       );
 
+      console.log({ title, questions });
+
       const quizId = crypto.randomUUID();
+      setIsLoading(false);
 
       // adding array of question to context
       addQuestions(quizId, questions);
@@ -63,6 +68,7 @@ export default function MakeQuiz() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     const { prompt, quantity, difficulty } = Object.fromEntries(
       new FormData(e.target),
     );
@@ -72,10 +78,14 @@ export default function MakeQuiz() {
     e.target.reset();
   }
 
+  // className="w-[95%] max-w-3xl rounded-2xl border border-stone-600 bg-stone-900 px-5 py-3 text-white capitalize";
+
+  // className="w-[95%] max-w-3xl rounded-2xl border border-stone-600 bg-transparent backdrop-blur-xs px-5 py-3 text-white capitalize"
+
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-[95%] max-w-3xl rounded-2xl border border-stone-600 bg-stone-900 px-5 py-3 text-white capitalize"
+      className="w-[95%] max-w-3xl rounded-2xl border border-stone-600 bg-transparent px-5 py-3 text-white capitalize backdrop-blur-md"
     >
       <AutoResizingTextarea />
 
@@ -87,26 +97,27 @@ export default function MakeQuiz() {
         <Select />
         {/* submit button */}
         <button
-          onClick={() => {
-            /* Your logic to open a modal or navigate */
-          }}
-          className="group relative ml-auto flex items-center gap-3 rounded-2xl bg-white/80 px-6 py-3.5 text-sm font-bold text-black transition-all hover:bg-green-500 hover:text-white hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] active:scale-95"
+          type="submit"
+          disabled={isLoading}
+          className="group /* Hover Effects */ /* Active State */ /* Disabled States */ relative ml-auto flex items-center gap-3 rounded-2xl bg-white/80 px-6 py-3.5 text-sm font-bold text-black transition-all hover:bg-green-500 hover:text-white hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-white/80 disabled:hover:text-black disabled:hover:shadow-none disabled:active:scale-100"
         >
           {/* Icon Container */}
-          <div className="flex h-5 w-5 items-center justify-center rounded-lg bg-stone-900 text-white transition-colors group-hover:bg-white group-hover:text-green-600">
+          <div className="flex h-5 w-5 items-center justify-center rounded-lg bg-stone-900 text-white transition-colors group-hover:bg-white group-hover:text-green-600 group-disabled:bg-stone-400">
             <Plus size={14} strokeWidth={3} />
           </div>
 
-          <span className="tracking-tight">Create New Quiz</span>
+          <span className="tracking-tight">
+            {isLoading ? "Creating..." : "Create New Quiz"}
+          </span>
 
           {/* The Arrow that moves */}
           <ArrowRight
             size={18}
-            className="ml-1 transition-all duration-300 group-hover:translate-x-1"
+            className="ml-1 transition-all duration-300 group-hover:translate-x-1 group-disabled:translate-x-0"
           />
 
           {/* Subtle border glow for dark mode */}
-          <div className="absolute inset-0 rounded-2xl ring-1 ring-black/10 ring-inset group-hover:ring-white/20" />
+          <div className="absolute inset-0 rounded-2xl ring-1 ring-black/10 ring-inset group-hover:ring-white/20 group-disabled:ring-black/5" />
         </button>
       </div>
     </form>

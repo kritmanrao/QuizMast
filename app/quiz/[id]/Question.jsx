@@ -50,7 +50,7 @@ export default function Questions({ questions, updateAnser, finishQuiz }) {
   return (
     <div className="mx-auto w-300 max-w-2xl px-4 py-10">
       {/* Header Info */}
-      <div className="mb-8 flex items-end justify-between">
+      <div className="mb-5 flex items-end justify-between">
         <div>
           <span className="text-sm font-medium tracking-wider text-green-500 uppercase">
             Step {index + 1} of {questions.length}
@@ -70,7 +70,7 @@ export default function Questions({ questions, updateAnser, finishQuiz }) {
       </div>
 
       {/* Main Card */}
-      <div className="relative overflow-hidden rounded-3xl border border-stone-800 bg-stone-900/40 p-8 shadow-2xl backdrop-blur-sm">
+      <div className="relative overflow-hidden rounded-3xl border border-stone-800 bg-stone-900/40 px-8 py-3 shadow-2xl backdrop-blur-sm">
         {/* Animated Timer Bar */}
         <div className="absolute top-0 left-0 h-1 w-full bg-stone-800">
           <div
@@ -100,7 +100,7 @@ export default function Questions({ questions, updateAnser, finishQuiz }) {
               <button
                 key={i}
                 onClick={() => handleSelect(i)}
-                className={`group flex items-center justify-between rounded-2xl border-2 px-5 py-4 text-left transition-all duration-200 ${
+                className={`group flex items-center justify-between rounded-2xl border-2 px-5 py-3 text-left transition-all duration-200 ${
                   isSelected
                     ? "border-green-500 bg-green-500/10 text-green-400"
                     : "border-stone-800 bg-stone-800/20 text-stone-400 hover:border-stone-600 hover:bg-stone-800/40"
@@ -123,7 +123,7 @@ export default function Questions({ questions, updateAnser, finishQuiz }) {
         </div>
 
         {/* Action Button */}
-        <div className="mt-10 flex justify-end">
+        <div className="mt-5 flex justify-end">
           <button
             onClick={nextQuestion}
             disabled={answer[index] === -1}

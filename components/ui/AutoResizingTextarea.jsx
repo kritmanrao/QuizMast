@@ -32,6 +32,7 @@ const AutoResizingTextarea = () => {
       ref={textareaRef}
       onInput={handleInput}
       rows="1"
+      required
       name="prompt"
       placeholder="Type or paste here..."
       className="w-full resize-none rounded-md border border-none p-2 leading-6 outline-none"

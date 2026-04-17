@@ -19,6 +19,8 @@ export default function NavBar() {
     { name: "Categories", href: "/categories", icon: <Layers size={18} /> },
   ];
 
+  //
+
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-stone-800 bg-stone-950/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">

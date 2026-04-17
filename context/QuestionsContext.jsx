@@ -1,59 +1,12 @@
 "use client";
 import { createContext, useReducer } from "react";
+import { initialQuestions } from "@/lib/storage.js";
 
 export const QuestionsContext = createContext();
 
 // this is now some fake test it will we be [] or data-base when development done.
-const initialState = [
-  {
-    id: "2749798f-8a68-4004-b535-ccfc5687981d",
-    quizId: "39189c0b-226e-4786-ae53-2e4353747a96",
-    question: "what is js?",
-    options: [
-      "semi-object oriented",
-      "functional programming lang",
-      "oops",
-      "none of these",
-    ],
-    correctOption: 0,
-  },
-  {
-    id: "c22942b5-fafb-45cf-9418-6a9bfe355f79",
-    quizId: "39189c0b-226e-4786-ae53-2e4353747a96",
-    question: "cpp is a ?",
-    options: [
-      "semi-object oriented",
-      "functional programming lang",
-      "oops",
-      "none of these",
-    ],
-    correctOption: 0,
-  },
-  {
-    id: "f68afd51-e228-458a-9cc3-5339b48eafc9",
-    quizId: "39189c0b-226e-4786-ae53-2e4353747a96",
-    question: "react is ?",
-    options: [
-      "js library",
-      "functional programming lang",
-      "oops",
-      "none of these",
-    ],
-    correctOption: 0,
-  },
-  {
-    id: "cb3d88ab-b3d1-49f2-ba6d-ed7e87a9876f",
-    quizId: "39189c0b-226e-4786-ae53-2e4353747a96",
-    question: "what is next js",
-    options: [
-      "semi-object oriented",
-      "react freamework",
-      "oops",
-      "none of these",
-    ],
-    correctOption: 1,
-  },
-];
+
+const initialState = initialQuestions;
 
 export const QuestionActions = Object.freeze({
   ADD_QUESTION_BY_ONE: "addQuestionByOne",

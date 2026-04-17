@@ -1,4 +1,6 @@
 // components/home/Preview.jsx
+import Image from "next/image";
+
 export default function Preview() {
   return (
     <section className="flex w-full justify-center py-20">
@@ -13,8 +15,7 @@ export default function Preview() {
         {/* Placeholder for your actual App Screenshot */}
         <div className="flex aspect-video w-full items-center justify-center rounded-xl border border-stone-800 bg-stone-950">
           <span className="font-mono text-stone-700 italic">
-            <img src="/dashbord.png" alt="img" />[ Quiz Dashboard Preview Image
-            ]
+            <img src="/dashbord.png" alt="image of dashbord" />
           </span>
         </div>
 

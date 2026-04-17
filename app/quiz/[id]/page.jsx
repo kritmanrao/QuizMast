@@ -9,12 +9,14 @@ import Starter from "./Starter";
 import Questions from "./Question";
 import ShowResult from "./ShowResult";
 
+import { QuizActions } from "@/context/QuizContext";
+
 export default function QuizPage() {
   const [status, setStatus] = useState("ready"); // ready | started | finished
   const [answer, setAnswer] = useState([]);
   const { id } = useParams();
 
-  const { quizzes } = useQuiz();
+  const { quizzes, dispatch } = useQuiz();
   const { questions } = useQuestion();
 
   // Memoize data selection to prevent heavy filtering on every state change
@@ -27,6 +29,12 @@ export default function QuizPage() {
     () => questions?.filter((q) => q.quizId === id),
     [questions, id],
   );
+
+  function finishQuiz() {
+    setStatus("finished");
+    dispatch({ type: QuizActions.EDIT_STATUS, payload: id });
+    // quizDispatch({ type: QuizActions.ADD_QUIZ, payload: newQuiz });
+  }
 
   // Loading State
   if (!currentQuiz || !filterQuestions) {
@@ -51,7 +59,7 @@ export default function QuizPage() {
         <Questions
           questions={filterQuestions}
           updateAnser={(newAns) => setAnswer(newAns)}
-          finishQuiz={() => setStatus("finished")}
+          finishQuiz={finishQuiz}
         />
       )}
 

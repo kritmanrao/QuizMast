@@ -1,29 +1,11 @@
 "use client";
 import { createContext, useReducer } from "react";
+import { initialQuiz } from "@/lib/storage.js";
 
 export const QuizContext = createContext();
 
 // this is now some fake test it will we be [] or data-base when development done.
-const initialState = [
-  {
-    id: "39189c0b-226e-4786-ae53-2e4353747a96",
-    title: "Test",
-    difficulty: "easy",
-    status: true,
-  },
-  {
-    id: "39189c0b-226e-4786-ae53",
-    title: "Cpp",
-    difficulty: "heard",
-    status: false,
-  },
-  {
-    id: "39189c0b-ae53-2e4353747a96",
-    title: "Java",
-    difficulty: "medium",
-    status: false,
-  },
-];
+const initialState = initialQuiz;
 
 export const QuizActions = Object.freeze({
   ADD_QUIZ: "addQuiz",
@@ -45,14 +27,14 @@ function reducer(state, action) {
     // edit Title payload = {id, newTitle}
     case QuizActions.EDIT_TITLE:
       return state.map((quiz) =>
-        quiz.id === payload.id
+        quiz.id === action.payload.id
           ? { ...quiz, title: action.payload.newTitle }
           : quiz,
       );
     // edit status payload = {id} status-> true / false
     case QuizActions.EDIT_STATUS:
       return state.map((quiz) =>
-        quiz.id === payload.id ? { ...quiz, status: true } : quiz,
+        quiz.id === action.payload ? { ...quiz, status: true } : quiz,
       );
     default:
       throw new Error("Unknown Action");
