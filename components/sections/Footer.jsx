@@ -36,7 +36,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://github.com/kritmanrao/react-quiz"
+                  href="https://github.com/kritmanrao/QuizMast"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white"

@@ -72,7 +72,7 @@ export default function SupportPage() {
             </div>
           </div>
         </section>
-  
+
         {/* GitHub / Open Source Section */}
         <section className="rounded-2xl border border-dashed border-stone-800 p-8 text-center md:col-span-2">
           {/* Updated Icon */}
@@ -85,7 +85,7 @@ export default function SupportPage() {
             generation of AI learning.
           </p>
           <Link
-            href="https://github.com/kritmanrao/"
+            href="https://github.com/kritmanrao/QuizMast"
             className="font-mono text-sm text-green-400 hover:underline"
           >
             view_repository.git
