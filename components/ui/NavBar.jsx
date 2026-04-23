@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Home, Trophy, User, Layers } from "lucide-react"; // Optional: npm install lucide-react
+import { LayoutDashboard, Home, BookOpen, User, Layers } from "lucide-react";
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -15,8 +15,17 @@ export default function NavBar() {
       href: "/dashboard",
       icon: <LayoutDashboard size={18} />,
     },
-    { name: "Leaderboard", href: "/leaderboard", icon: <Trophy size={18} /> },
-    { name: "Categories", href: "/categories", icon: <Layers size={18} /> },
+    { name: "Docs", href: "/docs", icon: <BookOpen size={18} /> },
+    {
+      name: "Categories",
+      href: "/categories",
+      icon: <Layers size={18} />,
+      badge: (
+        <span className="ml-1 rounded bg-stone-800 px-1.5 py-0.5 text-[10px] text-stone-500 uppercase">
+          Soon
+        </span>
+      ),
+    },
   ];
 
   //
@@ -49,6 +58,7 @@ export default function NavBar() {
               >
                 {link.icon}
                 {link.name}
+                {link.badge && link.badge}
 
                 {/* Optimized Active Indicator */}
                 {isActive && (

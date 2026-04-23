@@ -35,7 +35,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/github" className="hover:text-white">
+                <Link
+                  href="https://github.com/kritmanrao/react-quiz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white"
+                >
                   GitHub
                 </Link>
               </li>
@@ -43,21 +48,31 @@ export default function Footer() {
           </div>
 
           {/* Company */}
+          {/* Legal Section in Footer */}
           <div>
             <h4 className="text-sm font-bold text-white">Legal</h4>
             <ul className="mt-4 space-y-2 text-sm text-stone-500">
               <li>
-                <Link href="/privacy" className="hover:text-white">
+                <Link
+                  href="/legal#privacy"
+                  className="transition-colors hover:text-white"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-white">
+                <Link
+                  href="/legal#terms"
+                  className="transition-colors hover:text-white"
+                >
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/cookie" className="hover:text-white">
+                <Link
+                  href="/legal#cookies"
+                  className="transition-colors hover:text-white"
+                >
                   Cookie Policy
                 </Link>
               </li>
@@ -65,21 +80,31 @@ export default function Footer() {
           </div>
 
           {/* Support */}
+          {/* Support Section in Footer */}
           <div>
             <h4 className="text-sm font-bold text-white">Support</h4>
             <ul className="mt-4 space-y-2 text-sm text-stone-500">
               <li>
-                <Link href="/contact" className="hover:text-white">
+                <Link
+                  href="/support#contact"
+                  className="transition-colors hover:text-white"
+                >
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="/feedback" className="hover:text-white">
+                <Link
+                  href="/support#contact"
+                  className="transition-colors hover:text-white"
+                >
                   Feedback
                 </Link>
               </li>
               <li>
-                <Link href="/status" className="hover:text-white">
+                <Link
+                  href="/support#status"
+                  className="transition-colors hover:text-white"
+                >
                   System Status
                 </Link>
               </li>

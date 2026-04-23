@@ -28,7 +28,7 @@ export default function QuizPage() {
   const filterQuestions = useMemo(
     () => questions?.filter((q) => q.quizId === id),
     [questions, id],
-  );
+  ); 
 
   function finishQuiz() {
     setStatus("finished");
